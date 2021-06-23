@@ -42,7 +42,7 @@ void roofmap(float X, float Y, float x, float y, std::vector<problema> problemas
             status[i][j] = Normal;
     }
 
-    int a,b,c,d; //variáveis de apoio parar localização dos problemas
+    int a,b,c,d; //variáveis de apoio para localização dos problemas
 
     for(int k = 0; k<Nproblemas; k++){
 
@@ -66,8 +66,8 @@ void roofmap(float X, float Y, float x, float y, std::vector<problema> problemas
         }
     }
 
-    for (int j = 0; j < NV; j++) {
-        for (int i = 0; i < NH; i++) {
+    for(int j = 0; j < NV; j++) {
+        for(int i = 0; i < NH; i++) {
             printf("%d  ",status[i][j]);
         }
 
@@ -84,7 +84,7 @@ void getdata(std::string file, std::vector<problema> & problemas, int *Nproblema
 
     fp = fopen(file.c_str(),"r");
 
-    if (fp != NULL) {
+    if(fp != NULL) {
 
         fgets(valor, 20, fp);
 
