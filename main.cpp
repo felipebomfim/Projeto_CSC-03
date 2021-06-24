@@ -73,7 +73,7 @@ void roofmap(float X, float Y, float x, float y, std::vector<problema> problemas
             fprintf(fp,"%d  ",status[i][j]);
         }
         
-        printf("\n");
+        fprintf(fp,"\n");
     }
 
 }
