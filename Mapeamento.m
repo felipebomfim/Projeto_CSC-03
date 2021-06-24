@@ -10,7 +10,7 @@ M = [
     0 0 0 0 0 0 0 0 0 0 0;
 ];
 
-M = readmatrix("matrix");
+M = readmatrix("Matrix");
 
 M = M +1;
 
@@ -33,7 +33,7 @@ end
 title("Mapa de calor das Telhas");
 
 A = scatter([],[],1, [0 1 0], 'filled', 'DisplayName', 'Normal');  
-B = scatter([],[],1, [0 0 0], 'filled', 'DisplayName', 'N„o Identificado');
+B = scatter([],[],1, [0 0 0], 'filled', 'DisplayName', 'N√£o Identificado');
 C = scatter([],[],1, [1 1 0], 'filled', 'DisplayName', 'Objeto');
 D = scatter([],[],1, [1 0 0], 'filled', 'DisplayName', 'Buraco');
 
@@ -74,6 +74,6 @@ title("Resumo das Telhas")
 text(1:5,y,num2str(y'),'vert','bottom','horiz','center');
 ylabel("Quantidade de telhas",'FontSize',12,'FontWeight','bold','Color','r')
 set(gcf, 'Position', [10, 250, 2000, 600]);
-xticklabels({'TOTAL \newlineDE TELHAS','TELHAS \newlineNORMAIS','TELHAS COM\newline BURACOS', 'TELHAS COM \newlineOBJETOS', '      PROBLEMAS \newlineN√O IDENTIFICADOS'})
+xticklabels({'TOTAL \newlineDE TELHAS','TELHAS \newlineNORMAIS','TELHAS COM\newline BURACOS', 'TELHAS COM \newlineOBJETOS', '      PROBLEMAS \newlineN√ÉO IDENTIFICADOS'})
 
 
