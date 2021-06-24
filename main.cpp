@@ -65,14 +65,15 @@ void roofmap(float X, float Y, float x, float y, std::vector<problema> problemas
             }
         }
     }
-
+    
+    FILE *fp;
+    fp = fopen("Matrix.txt","w");
     for(int j = 0; j < NV; j++) {
         for(int i = 0; i < NH; i++) {
-            printf("%d  ",status[i][j]);
+            fprintf(fp,"%d  ",status[i][j]);
         }
-
-        printf("\n\n");
-
+        
+        printf("\n");
     }
 
 }
