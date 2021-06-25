@@ -66,6 +66,7 @@ void roofmap(float X, float Y, float x, float y, std::vector<problema> problemas
         }
     }
     
+    //escrita do arquivo com a matriz das telhas
     FILE *fp;
     fp = fopen("Matrix.txt","w");
     for(int j = 0; j < NV; j++) {
@@ -76,9 +77,28 @@ void roofmap(float X, float Y, float x, float y, std::vector<problema> problemas
         fprintf(fp,"\n");
     }
 
+    fclose(fp);
+
+    //escrita do relatório final das telhas
+    int n=0;
+
+    fp = fopen("Relatorio.txt","w");
+    for(int j = 0; j < NV; j++) {
+        for(int i = 0; i < NH; i++) {
+		if(status[i][j] == 0)
+			fprintf(fp,"Telha %02dx%02d: Situação normal\n", i+1,j+1);
+		if(status[i][j] == 1)
+                        fprintf(fp,"Telha %02dx%02d: Situação não identificada\n", i+1,j+1);
+		if(status[i][j] == 2)
+                        fprintf(fp,"Telha %02dx%02d: Objeto(s) em cima da telha\n", i+1,j+1);
+		if(status[i][j] == 3)
+                        fprintf(fp,"Telha %02dx%02d: Telha quebrada ou com furos\n", i+1,j+1);
+        }
+    }
+    fclose(fp);
 }
 
-void getdata(std::string file, std::vector<problema> & problemas, int *Nproblemas){
+void getdata(std::string file, std::vector<problema> & problemas, int *Nproblemas, float *X, float *Y, float *x, float *y){
 
     FILE *fp;
     char valor[20];
@@ -87,8 +107,23 @@ void getdata(std::string file, std::vector<problema> & problemas, int *Nproblema
 
     if(fp != NULL) {
 
+	fgets(valor, 20, fp);
+
+	fgets(valor, 20, fp);
+	*X = strtof(valor,nullptr);
+	fgets(valor, 20, fp);
+	*Y = strtof(valor,nullptr);
+
+	fgets(valor, 20, fp);
+
+        fgets(valor, 20, fp);
+        *x = strtof(valor,nullptr);
+        fgets(valor, 20, fp);
+        *y = strtof(valor,nullptr);
+
         fgets(valor, 20, fp);
 
+	fgets(valor, 20, fp);
         *Nproblemas = atoi(valor);
 
         problemas.resize(*Nproblemas);
@@ -126,12 +161,7 @@ int main() {
     std::vector<problema> problemas;
     int Nproblemas;
 
-    X=10.5;
-    Y=20;
-    x=1;
-    y=2;
-
-    getdata("entrada.txt",problemas, &Nproblemas);
+    getdata("entrada.txt",problemas, &Nproblemas, &X, &Y, &x, &y);
 
     roofmap(X,Y,x,y,problemas,Nproblemas);
 

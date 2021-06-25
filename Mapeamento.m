@@ -1,16 +1,5 @@
 clear;
-
-M = [
-    0 0 1 1 1 1 1 0 0 0 0;
-    0 0 1 1 1 1 1 0 0 0 0;
-    0 0 1 1 1 1 1 0 0 0 0;
-    0 0 2 2 2 2 2 0 0 0 0;
-    0 0 3 3 3 0 0 0 1 1 0;
-    0 0 0 0 0 3 0 3 0 0 0;
-    0 0 0 0 0 0 0 0 0 0 0;
-];
-
-M = readmatrix("Matrix");
+M = readmatrix('Matrix');
 
 M = M +1;
 
@@ -30,7 +19,7 @@ end
 for col = 1 : 1 : width+1
   line([col-0.5, col-0.5], [1-0.5, height+0.5], 'Color', 'b');
 end
-title("Mapa de calor das Telhas");
+title('Mapa de calor das Telhas');
 
 A = scatter([],[],1, [0 1 0], 'filled', 'DisplayName', 'Normal');  
 B = scatter([],[],1, [0 0 0], 'filled', 'DisplayName', 'Não Identificado');
@@ -70,10 +59,11 @@ b.CData(2,:) = [0 1 0];
 b.CData(3,:) = [1 0 0];
 b.CData(4,:) = [1 1 0];
 b.CData(5,:) = [0 0 0];
-title("Resumo das Telhas")
+title('Resumo das Telhas')
 text(1:5,y,num2str(y'),'vert','bottom','horiz','center');
-ylabel("Quantidade de telhas",'FontSize',12,'FontWeight','bold','Color','r')
+ylabel('Quantidade de telhas','FontSize',12,'FontWeight','bold','Color','r')
 set(gcf, 'Position', [10, 250, 2000, 600]);
-xticklabels({'TOTAL \newlineDE TELHAS','TELHAS \newlineNORMAIS','TELHAS COM\newline BURACOS', 'TELHAS COM \newlineOBJETOS', '      PROBLEMAS \newlineNÃO IDENTIFICADOS'})
+xticklabels({'TOTAL \newlineDE TELHAS','TELHAS \newlineNORMAIS','TELHAS COM\newline BURACOS', ...
+    'TELHAS COM \newlineOBJETOS', '      PROBLEMAS \newlineNÃO IDENTIFICADOS'})
 
 
